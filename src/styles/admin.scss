@@ -1,0 +1,369 @@
+$bgc: #D9DDE8;
+$pastel1: #F2F2EA;
+$lightred: #DE6162;
+$lightblack: #373737;
+$darkblack: #272727;
+
+#NavBar {
+    background-color: $lightblack;
+    position: relative;
+    overflow: visible; // add this line
+    .container {
+        margin: auto;
+        width: 95%;
+        height: 65px;
+        display: flex;
+        justify-content: space-between;
+        .logo {
+            & > * {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+                font-weight: bold;
+                color: white;
+                align-self: center;
+                line-height: 65px;
+                text-decoration: none;
+                span {
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+        }
+        .actions {
+            display: flex;
+            font-weight: bold;
+            & > * {
+                border: none;
+                background-color: transparent;
+                display: block;
+                text-decoration: none;
+                color: white;
+                text-transform: uppercase;
+                font-size: 1.1em;
+                height: 100%;
+                padding: 0 25px;
+                line-height: 65px;
+            }
+            button {
+                background-color: $darkblack;
+                cursor: pointer;
+                overflow: hidden;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                & > :nth-child(2) {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+#Dropdown {
+    display: none;
+    position: absolute;
+    bottom: -50px;
+    right: 40px;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 999;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    ul {
+        list-style-type: none;
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            .off {
+                color: rgb(147, 29, 29);
+            }
+        }
+    }
+    animation: slideDown 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.5) forwards;
+    opacity: 0; // add this line
+    transform: translateY(-50%); // add this line
+}
+
+.showDrop {
+    display: block !important;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#AdminNavBar {
+    display: flex;
+    gap: 15px;
+    & > * {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #aeaeae;
+        font-weight: bold;
+        display: block;
+        font-size: 1.1em;
+    }
+}
+
+.adminMain {
+    margin-top: 80px;
+}
+
+#Profile {
+    background-color: #F7F6F2;
+
+}
+
+#Mainboard {
+    display: flex;
+    height: calc(100vh - 65px);
+    position: relative;
+    #MainDash {
+        overflow-y: scroll;
+        width: calc(100% - 300px);
+        background-color: #F2F2F0;
+        padding: 30px 30px 90px 30px;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.showModal {
+    overflow-y: hidden;
+    position: relative;
+    &::before {
+        position: absolute;
+        z-index: 5;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+#Sidebar {
+    height: calc(100vh - 65px);
+    width: 300px;
+    background-color: $pastel1;
+    box-shadow: 2px 0 2px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    .links {
+        & > :last-child {
+            border-bottom: 2px solid #dddddd;
+        }
+        & > * {
+            display: block;
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            span {
+                padding: 20px;
+                display: block;
+            }
+            .icon {
+                color: #767676;
+                font-size: 1.1em;
+                border: 2px solid #dddddd;
+                border-bottom: none;
+                display: block;
+                width: 25%;
+                text-align: center;
+            }
+            .legend {
+                width: 80%;
+                display: block;
+                border: 2px solid #dddddd;
+                border-bottom: none;
+                border-right: none;
+                border-left: none;
+                color: #606060;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.activeLink {
+    background-color: $lightred !important;
+    color: white !important;
+    border: 1px solid $lightred !important;
+}
+
+.addAdminForm {
+    width: 600px;
+    margin: auto;
+    .field {
+        margin-bottom: 15px;
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        input, select {
+            display: block;
+            background-color: #F7F6F2;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #d0d0d0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        select {
+            font-weight: bold;
+            text-align: center;
+        }
+        .genPassword {
+            display: flex;
+            gap: 5px;
+            input {
+                width: 80%;
+            }
+            button {
+                width: 20%;
+                display: flex;
+                color: white;
+                font-weight: bold;
+                justify-content: center;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                background-color: $lightred;
+                cursor: pointer;
+                gap: 2px;
+                font-size: 1em;
+                align-items: center;
+                span {
+                    margin-top: 5px;
+                    display: block;
+                    font-size: 1.7em;
+                }
+            }
+        }
+    }
+    .smtBtn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        font-weight: bold;
+        color: white;
+        font-size: 1.1em;
+        background-color: $lightred;
+        border: none;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+}
+
+.searchMap {
+    border: none;
+    background-color: transparent;
+    color: $lightred;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.mapClass {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+#AdminTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+    tr {
+        text-align: center;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        button {
+            background-color: $lightred;
+            font-weight: bold;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+}
+
+@keyframes modalAnimation {
+    from {
+        opacity: 0;
+        top: 55%
+    }
+    to {
+        opacity: 1;
+        top: 50%        
+    }
+}
+
+#ModalAdmin {
+    position: absolute;
+    width: 450px;
+    background-color: $pastel1;
+    border-radius: 10px;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    animation: modalAnimation .3s;
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .info {
+        p {
+            font-weight: bold;
+            margin-bottom: 7.5px;
+            span {
+                font-weight: lighter;
+            }
+        }
+    }
+    .closeBtn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: firebrick;
+        font-size: 1.7em;
+        border: none;
+        cursor: pointer;
+    }
+}

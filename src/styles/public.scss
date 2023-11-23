@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+$bgc: #D9DDE8;
+$lightred: #DE6162;
+$lightblack: #373737;
+
+#Login {
+    min-height: 100vh;
+    height: 100%;
+    background-color: $bgc; 
+    position: relative;
+    .formbox {
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2);
+        .legend {
+            background-color: $lightred;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 5px;
+            p {
+                font-weight: bold;
+                font-size: 2em;
+                color: white;
+            }
+            img {
+                width: 60px;
+                display: block;
+            }
+        }
+        form {
+            padding: 20px;
+            input {
+                display: block;
+                font-size: 1em;
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: none;
+                border: 1px solid #dcdcdc;
+            }
+            .smtBtn {
+                text-transform: uppercase;
+                color: white;
+                margin-top: 20px;
+                margin-bottom: 0;
+                border: none;
+                font-weight: bold;
+                background-color: $lightblack;
+                font-size: 1.1em;
+                letter-spacing: 2px;
+                cursor: pointer;
+            }
+        }
+    }
+}
