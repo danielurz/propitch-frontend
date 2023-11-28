@@ -13,7 +13,10 @@ export const autenticacion = async dispatch => {
             headers: {
                 "authorization" : `Bearer ${token}`
             }
-        }).then(data => data.json())
+        }).then(data => {
+            console.log(data)
+            return data.json()
+        })
 
         if (response?.error) return console.error(response.error)
         if (response?.serverError) return console.error(`Server Error: ${response.serverError}`)
