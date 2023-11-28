@@ -108,6 +108,8 @@ function AddAdmin() {
     if (password.length < 8) return toast.error("La contraseña debe tener al menos 8 caracteres")
     if (!markup) return toast.error("Añade la ubicacion de la residencia haciendo click en el mapa")
 
+    const toastLoading = toast.loading("Agregando administrador...")
+
     try {
       const url = `${import.meta.env.VITE_SUDO_API}/admin/${userData._id}/${JSON.stringify(markup)}`
       const response = await fetch(url, {
@@ -131,6 +133,8 @@ function AddAdmin() {
 
     } catch (error) {
       toast.error(`Client Error: ${error.message}`)
+    } finally {
+      toast.dismiss(toastLoading)
     }
   }
 

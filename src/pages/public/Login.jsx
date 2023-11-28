@@ -15,7 +15,8 @@ function Login() {
     const email = formdata.get("email")
     const password = formdata.get("password")
 
-    console.log(import.meta.env.VITE_SUDO_API)
+    const toastLoading = toast.loading("Ingresando...")
+    
     try {
       const url = `${import.meta.env.VITE_SUDO_API}/login`
       const response = await fetch(url,{
@@ -35,6 +36,8 @@ function Login() {
 
     } catch (error) {
       toast.error(`Client Error: ${error.message}`)
+    } finally {
+      toast.dismiss(toastLoading)
     }
   }
 
