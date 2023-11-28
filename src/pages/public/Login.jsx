@@ -15,6 +15,7 @@ function Login() {
     const email = formdata.get("email")
     const password = formdata.get("password")
 
+    console.log(import.meta.env.VITE_SUDO_API)
     try {
       const url = `${import.meta.env.VITE_SUDO_API}/login`
       const response = await fetch(url,{
